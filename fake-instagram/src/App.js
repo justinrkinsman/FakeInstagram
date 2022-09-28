@@ -1,10 +1,10 @@
 import './App.css';
-import { Header } from './components/Header';
+import { HomePage } from './components/HomePage';
 
 export function App() {
   return (
     <>
-      <Header />
+      <HomePage />
     </>
   );
 }
