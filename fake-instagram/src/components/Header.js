@@ -1,7 +1,11 @@
 import { Logo } from './headerComponents/Logo'
+import { Searchbar } from './reusuableComponents/Searchbar'
 
 export function Header() {
     return (
-        <Logo />
+        <div id="header">
+            <Logo />
+            <Searchbar />
+        </div>
     )
 }

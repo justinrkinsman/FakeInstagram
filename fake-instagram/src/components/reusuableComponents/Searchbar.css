@@ -1,0 +1,8 @@
+#glass {
+    height: 30px;
+    width: auto;
+}
+
+#searchbar {
+    display: flex;
+}
