@@ -3,6 +3,7 @@ import { Logo } from './headerComponents/Logo'
 import { Searchbar } from './reusuableComponents/Searchbar'
 import "./Header.css"
 import { HeaderButtons } from './headerComponents/HeaderButtons'
+import { YourProfilePic } from './reusuableComponents/YourProfilePic'
 
 export function Header() {
     return (
@@ -10,6 +11,7 @@ export function Header() {
             <Logo />
             <Searchbar />
             <HeaderButtons />
+            <YourProfilePic />
         </div>
     )
 }
