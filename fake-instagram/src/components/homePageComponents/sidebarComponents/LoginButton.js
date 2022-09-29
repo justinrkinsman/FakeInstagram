@@ -1,5 +1,5 @@
 export function LoginButton() {
     return(
-        <button>Login</button>
+        <button id='login'>Login</button>
     )
 }

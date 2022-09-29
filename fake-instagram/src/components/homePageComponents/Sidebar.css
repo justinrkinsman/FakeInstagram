@@ -1,5 +1,12 @@
 #sidebar {
     border: 1px solid black;
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 100px;
+}
+
+#signUp, #login {
+    width: 75px;
 }
