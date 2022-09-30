@@ -1,4 +1,6 @@
 import { Header } from "../../Header"
+import { LoginButton } from "../../reusuableComponents/LoginButton"
+import { signIn } from "../../../App"
 
 export function SignUpPage() {
     return(
@@ -12,7 +14,7 @@ export function SignUpPage() {
                 </div>
                 <button>Sign-up with Google</button>
                 <p>Already signed up?</p>
-                <button>Login</button>
+                <LoginButton onClick={signIn}/>
             </div>
         </div>
     )
