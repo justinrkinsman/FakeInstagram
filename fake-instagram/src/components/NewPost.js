@@ -1,4 +1,7 @@
 import { Header } from "./Header"
+import { UploadButton } from "./newPostComponents/UploadPhoto"
+import { AddDescription } from "./newPostComponents/AddDescription"
+import { PostButton } from "./newPostComponents/PostPhoto"
 
 export function NewPost() {
     return(
@@ -6,9 +9,9 @@ export function NewPost() {
             <Header />
             <div id='newPost'>
                 <p>Create New Post</p>
-                <button>Upload</button>
-                <input type='text' defaultValue={'Enter Description...'}></input>
-                <button>Post</button>
+                <UploadButton />
+                <AddDescription />
+                <PostButton />
             </div>
         </div>
     )
