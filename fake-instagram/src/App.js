@@ -1,7 +1,11 @@
 import './App.css';
 //import { HomePage } from './components/HomePage';
 
-import { GoogleAuthProvider, signInWithPopup, getAuth } from 'firebase/auth';
+import { 
+  GoogleAuthProvider, 
+  signInWithPopup, 
+  getAuth,  
+} from 'firebase/auth';
 
 export async function signIn() {
   let provider = new GoogleAuthProvider()
