@@ -1,6 +1,5 @@
 import './App.css';
 //import { HomePage } from './components/HomePage';
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
 import { 
   GoogleAuthProvider, 
   signInWithPopup, 
