@@ -40,13 +40,17 @@ export function checkSignedInWithMessage() {
   }
 }
 
-function authStateObserver() {
+async function authStateObserver() {
+  let profileCard = await document.getElementById('profileCard')
   if (checkSignedInWithMessage() === true) {
     // User is signed in!
     // Get the signed-in user's profile pic and name.
     //let profilePicUrl = getProfilePicUrl();
     //let userName = getUserName();
+    
 
+    //show user's profile card
+    profileCard.style.visibility = 'visible'
     // Set the user's profile pic and name.
     //userPicElement.style.backgroundImage =
       //'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')';
@@ -66,6 +70,7 @@ function authStateObserver() {
   } else {
     // User is signed out!
     // Hide user's profile and sign-out button.
+    profileCard.style.visibility = 'hidden'
     //userNameElement.setAttribute('hidden', 'true');
     //userPicElement.setAttribute('hidden', 'true');
     //signOutButtonElement.setAttribute('hidden', 'true');

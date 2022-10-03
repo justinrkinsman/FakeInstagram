@@ -14,7 +14,7 @@ export function SignUpPage() {
                     <label htmlFor='usernameInput'>@</label>
                     <input type='text' placeholder={'Username (1-30 characters)'} name='usernameInput' id='usernameInput'></input>
                 </div>
-                <button id='signUpWithGoogleButton' onClick={signUpButtonClick}>Sign-up with Google  </button>
+                <button id='signUpWithGoogleButton' onClick={signUpButtonClick}>Sign-up with Google</button>
                 <p>Already signed up?</p>
                 <LoginButton />
             </div>
@@ -39,4 +39,8 @@ async function saveUsernameToDatabase() {
     catch(error) {
         console.error('Error writing username to Firebase Database', error)
     }
+}
+
+export function renderSignUpPage(){
+    
 }

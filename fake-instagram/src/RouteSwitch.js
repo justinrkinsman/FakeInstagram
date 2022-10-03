@@ -9,7 +9,7 @@ export const RouteSwitch = () => {
         <BrowserRouter basename='/'>
             <Routes>
                 <Route path='/' element={<HomePage />} />
-                <Route path='/signup' element={<SignUpPage />} />
+                {/*<Route path='/signup' element={<SignUpPage />} />*/}
                 <Route path='/messages' element={<MessagesPage />} />
                 <Route path='/new-post' element={<NewPost />} />
             </Routes>
