@@ -26,7 +26,7 @@ export async function signIn() {
   console.log(getAuth())
 }
 
-export function initiFirebaseAuth() {
+export function initFirebaseAuth() {
   onAuthStateChanged(getAuth(), authStateObserver)
 }
 
@@ -80,7 +80,7 @@ function getProfilePicUrl() {
   return getAuth().currentUser.photoURL || './images/user.jpg';
 }
 
-function getUserName() {
+export function getUserName() {
   return getAuth().currentUser.displayName;
 }
 
