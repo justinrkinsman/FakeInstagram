@@ -2,6 +2,7 @@ import { Header } from "../../Header"
 import { LoginButton } from "../../reusuableComponents/LoginButton"
 import { signIn } from "../../../App"
 import { getAuth } from "firebase/auth"
+import { getFirestore, collection, addDoc } from 'firebase/firestore';
 
 export function SignUpPage() {
     return(
@@ -23,5 +24,18 @@ export function SignUpPage() {
 
 async function signUpButtonClick() {
     await signIn()
-    console.log(`Username: ${document.getElementById('usernameInput').value} Full Name: ${getAuth().currentUser.displayName}`)
+    saveUsernameToDatabase()
+    console.log(`Username: ${document.getElementById('usernameInput').value}`)
+}
+
+async function saveUsernameToDatabase() {
+    try {
+        await addDoc(collection(getFirestore(), 'user'), {
+            fullname: getAuth().currentUser.displayName,
+            username: document.getElementById('usernameInput').value
+        })
+    }
+    catch(error) {
+        console.error('Error writing username to Firebase Database', error)
+    }
 }
