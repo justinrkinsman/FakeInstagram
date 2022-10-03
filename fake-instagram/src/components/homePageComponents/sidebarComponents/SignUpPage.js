@@ -1,8 +1,8 @@
 import { Header } from "../../Header"
 import { LoginButton } from "../../reusuableComponents/LoginButton"
-import { signIn } from "../../../App"
 import { getAuth } from "firebase/auth"
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { signIn, checkSignedInWithMessage, initFirebaseAuth } from "../../../App";
 
 export function SignUpPage() {
     return(
@@ -25,7 +25,8 @@ export function SignUpPage() {
 async function signUpButtonClick() {
     await signIn()
     saveUsernameToDatabase()
-    console.log(`Username: ${document.getElementById('usernameInput').value}`)
+    checkSignedInWithMessage()
+    initFirebaseAuth()
 }
 
 async function saveUsernameToDatabase() {
