@@ -4,7 +4,8 @@ import {
   GoogleAuthProvider, 
   signInWithPopup, 
   getAuth,
-  onAuthStateChanged
+  onAuthStateChanged,
+  signOut
 } from 'firebase/auth';
 
 import firebase from 'firebase/compat/app'
@@ -24,6 +25,10 @@ export async function signIn() {
   let provider = new GoogleAuthProvider()
   await signInWithPopup(getAuth(), provider)
   console.log(getAuth())
+}
+
+export function signOutUser() {
+  signOut(getAuth())
 }
 
 export function initFirebaseAuth() {
