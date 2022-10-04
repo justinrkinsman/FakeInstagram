@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+//import { Link } from "react-router-dom"
 import { renderSignUpPage } from "./SignUpPage"
 
 export function SignUpButton() {

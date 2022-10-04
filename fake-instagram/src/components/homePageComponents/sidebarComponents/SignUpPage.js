@@ -42,5 +42,7 @@ async function saveUsernameToDatabase() {
 }
 
 export function renderSignUpPage(){
-    
+    document.getElementById('signUpPage').style.display = 'inline'
+    document.getElementById('homePageContent').style.display = 'none'
+    document.getElementById('header').style.display = 'none'
 }
