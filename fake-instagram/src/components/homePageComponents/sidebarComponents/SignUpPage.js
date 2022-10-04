@@ -1,6 +1,6 @@
 import { Header } from "../../Header"
 import { LoginButton } from "../../reusuableComponents/LoginButton"
-import { getAuth, signOut } from "firebase/auth"
+import { getAuth } from "firebase/auth"
 import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
 import { signIn, checkSignedInWithMessage, initFirebaseAuth, signOutUser } from "../../../App";
 import { Link } from "react-router-dom";
