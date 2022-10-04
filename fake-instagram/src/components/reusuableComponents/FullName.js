@@ -1,5 +1,9 @@
-export const FullName = () => {
+import { getAuth } from "firebase/auth"
+
+export /*async*/ function FullName() {
+    //let fullName = await getAuth().currentUser.displayName
+    //document.getElementById('fullNameDisplay').textContent = fullName
     return(
-        <div>Full name</div>
+        <div id='fullNameDisplay'></div>
     )
 }

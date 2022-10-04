@@ -9,6 +9,7 @@ import {
 } from 'firebase/auth';
 
 import firebase from 'firebase/compat/app'
+import { getFirestore, collection, getDocs } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: "AIzaSyCRzMy0qDjTGhSeOil4dvEwlLzpTAa7raQ",
@@ -19,7 +20,8 @@ const firebaseConfig = {
   appId: "1:792059962777:web:665152bc72f61d059f5f08"
 };
     
-firebase.initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
+export const db = getFirestore(app)
 
 export async function signIn() {
   let provider = new GoogleAuthProvider()
@@ -58,6 +60,7 @@ async function authStateObserver() {
     profileCard.style.visibility = 'visible'
     signUpButton.style.display = 'none'
     loginButton.style.display = 'none'
+    console.log(getAuth())
     // Set the user's profile pic and name.
     //userPicElement.style.backgroundImage =
       //'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')';

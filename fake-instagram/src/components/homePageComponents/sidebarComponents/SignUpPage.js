@@ -1,7 +1,7 @@
 import { Header } from "../../Header"
 import { LoginButton } from "../../reusuableComponents/LoginButton"
 import { getAuth } from "firebase/auth"
-import { getFirestore, collection, addDoc } from 'firebase/firestore';
+import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import { signIn, checkSignedInWithMessage, initFirebaseAuth } from "../../../App";
 import { Link } from "react-router-dom";
 
@@ -31,11 +31,13 @@ async function signUpButtonClick(username) {
 }
 
 async function saveUsernameToDatabase(username) {
+    let email = getAuth().currentUser.email
     try {
-        await addDoc(collection(getFirestore(), 'user'), {
+        await setDoc(doc(getFirestore(), 'user', email), {
             fullname: getAuth().currentUser.displayName,
             username: username,
-            timestamp: new Date()
+            timestamp: new Date(),
+            email: email
         })
     }
     catch(error) {

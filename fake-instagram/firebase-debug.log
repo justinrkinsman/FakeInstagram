@@ -1,35 +1,32 @@
-[debug] [2022-10-04T12:07:19.793Z] ----------------------------------------------------------------------
-[debug] [2022-10-04T12:07:19.805Z] Command:       /usr/local/bin/firebase /home/justin/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase serve --only hosting
-[debug] [2022-10-04T12:07:19.806Z] CLI Version:   11.8.0
-[debug] [2022-10-04T12:07:19.806Z] Platform:      linux
-[debug] [2022-10-04T12:07:19.806Z] Node Version:  v16.16.0
-[debug] [2022-10-04T12:07:19.822Z] Time:          Tue Oct 04 2022 09:07:19 GMT-0300 (Atlantic Daylight Time)
-[debug] [2022-10-04T12:07:19.824Z] ----------------------------------------------------------------------
+[debug] [2022-10-04T17:33:30.295Z] ----------------------------------------------------------------------
+[debug] [2022-10-04T17:33:30.299Z] Command:       /usr/local/bin/firebase /home/justin/.cache/firebase/tools/lib/node_modules/firebase-tools/lib/bin/firebase serve --only hosting
+[debug] [2022-10-04T17:33:30.299Z] CLI Version:   11.8.0
+[debug] [2022-10-04T17:33:30.300Z] Platform:      linux
+[debug] [2022-10-04T17:33:30.300Z] Node Version:  v16.16.0
+[debug] [2022-10-04T17:33:30.309Z] Time:          Tue Oct 04 2022 14:33:30 GMT-0300 (Atlantic Daylight Time)
+[debug] [2022-10-04T17:33:30.310Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2022-10-04T12:07:19.831Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
-[debug] [2022-10-04T12:07:20.371Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2022-10-04T12:07:20.374Z] > authorizing via signed-in user (justinrkinsman@gmail.com)
-[debug] [2022-10-04T12:07:20.374Z] [iam] checking project fakeinstagram-81277 for permissions ["firebase.projects.get"]
-[debug] [2022-10-04T12:07:20.376Z] > refreshing access token with scopes: []
-[debug] [2022-10-04T12:07:20.379Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
-[debug] [2022-10-04T12:07:20.379Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2022-10-04T12:07:20.805Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
-[debug] [2022-10-04T12:07:20.816Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
-[debug] [2022-10-04T12:07:20.859Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
-[debug] [2022-10-04T12:07:20.860Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
-[debug] [2022-10-04T12:07:20.897Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/fakeinstagram-81277:testIamPermissions [none]
-[debug] [2022-10-04T12:07:20.898Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/fakeinstagram-81277:testIamPermissions x-goog-quota-user=projects/fakeinstagram-81277
-[debug] [2022-10-04T12:07:20.898Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fakeinstagram-81277:testIamPermissions {"permissions":["firebase.projects.get"]}
-[debug] [2022-10-04T12:07:21.174Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/fakeinstagram-81277:testIamPermissions 200
-[debug] [2022-10-04T12:07:21.174Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fakeinstagram-81277:testIamPermissions {"permissions":["firebase.projects.get"]}
-[debug] [2022-10-04T12:07:21.177Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fakeinstagram-81277 [none]
-[debug] [2022-10-04T12:07:21.650Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fakeinstagram-81277 200
-[debug] [2022-10-04T12:07:21.650Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fakeinstagram-81277 {"projectId":"fakeinstagram-81277","projectNumber":"792059962777","displayName":"FakeInstagram","name":"projects/fakeinstagram-81277","resources":{"hostingSite":"fakeinstagram-81277","realtimeDatabaseInstance":"fakeinstagram-81277-default-rtdb","storageBucket":"fakeinstagram-81277.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_f2b05386-7c8e-4a9d-b044-6ddc002c19ef"}
-[debug] [2022-10-04T12:07:21.661Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/fakeinstagram-81277/sites 
-[debug] [2022-10-04T12:07:22.275Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/fakeinstagram-81277/sites 200
-[debug] [2022-10-04T12:07:22.276Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/fakeinstagram-81277/sites {"sites":[{"name":"projects/fakeinstagram-81277/sites/fakeinstagram-81277","defaultUrl":"https://fakeinstagram-81277.web.app","appId":"1:792059962777:web:665152bc72f61d059f5f08","type":"DEFAULT_SITE"}]}
-[debug] [2022-10-04T12:07:22.276Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fakeinstagram-81277/webApps/1:792059962777:web:665152bc72f61d059f5f08/config [none]
-[debug] [2022-10-04T12:07:22.791Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fakeinstagram-81277/webApps/1:792059962777:web:665152bc72f61d059f5f08/config 200
-[debug] [2022-10-04T12:07:22.792Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fakeinstagram-81277/webApps/1:792059962777:web:665152bc72f61d059f5f08/config {"projectId":"fakeinstagram-81277","appId":"1:792059962777:web:665152bc72f61d059f5f08","databaseURL":"https://fakeinstagram-81277-default-rtdb.firebaseio.com","storageBucket":"fakeinstagram-81277.appspot.com","locationId":"us-central","apiKey":"AIzaSyCRzMy0qDjTGhSeOil4dvEwlLzpTAa7raQ","authDomain":"fakeinstagram-81277.firebaseapp.com","messagingSenderId":"792059962777"}
+[debug] [2022-10-04T17:33:30.571Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-10-04T17:33:30.573Z] > authorizing via signed-in user (justinrkinsman@gmail.com)
+[debug] [2022-10-04T17:33:30.575Z] [iam] checking project fakeinstagram-81277 for permissions ["firebase.projects.get"]
+[debug] [2022-10-04T17:33:30.577Z] > refreshing access token with scopes: []
+[debug] [2022-10-04T17:33:30.581Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2022-10-04T17:33:30.581Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-10-04T17:33:30.982Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2022-10-04T17:33:30.983Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2022-10-04T17:33:31.000Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects/fakeinstagram-81277:testIamPermissions [none]
+[debug] [2022-10-04T17:33:31.000Z] >>> [apiv2][(partial)header] POST https://cloudresourcemanager.googleapis.com/v1/projects/fakeinstagram-81277:testIamPermissions x-goog-quota-user=projects/fakeinstagram-81277
+[debug] [2022-10-04T17:33:31.001Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fakeinstagram-81277:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-10-04T17:33:31.317Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects/fakeinstagram-81277:testIamPermissions 200
+[debug] [2022-10-04T17:33:31.318Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects/fakeinstagram-81277:testIamPermissions {"permissions":["firebase.projects.get"]}
+[debug] [2022-10-04T17:33:31.321Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fakeinstagram-81277 [none]
+[debug] [2022-10-04T17:33:31.810Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fakeinstagram-81277 200
+[debug] [2022-10-04T17:33:31.811Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fakeinstagram-81277 {"projectId":"fakeinstagram-81277","projectNumber":"792059962777","displayName":"FakeInstagram","name":"projects/fakeinstagram-81277","resources":{"hostingSite":"fakeinstagram-81277","realtimeDatabaseInstance":"fakeinstagram-81277-default-rtdb","storageBucket":"fakeinstagram-81277.appspot.com","locationId":"us-central"},"state":"ACTIVE","etag":"1_d98d3aa0-2897-42b9-94c6-24a5c44e6a6f"}
+[debug] [2022-10-04T17:33:31.820Z] >>> [apiv2][query] GET https://firebasehosting.googleapis.com/v1beta1/projects/fakeinstagram-81277/sites 
+[debug] [2022-10-04T17:33:32.435Z] <<< [apiv2][status] GET https://firebasehosting.googleapis.com/v1beta1/projects/fakeinstagram-81277/sites 200
+[debug] [2022-10-04T17:33:32.436Z] <<< [apiv2][body] GET https://firebasehosting.googleapis.com/v1beta1/projects/fakeinstagram-81277/sites {"sites":[{"name":"projects/fakeinstagram-81277/sites/fakeinstagram-81277","defaultUrl":"https://fakeinstagram-81277.web.app","appId":"1:792059962777:web:665152bc72f61d059f5f08","type":"DEFAULT_SITE"}]}
+[debug] [2022-10-04T17:33:32.437Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/fakeinstagram-81277/webApps/1:792059962777:web:665152bc72f61d059f5f08/config [none]
+[debug] [2022-10-04T17:33:33.117Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/fakeinstagram-81277/webApps/1:792059962777:web:665152bc72f61d059f5f08/config 200
+[debug] [2022-10-04T17:33:33.117Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/fakeinstagram-81277/webApps/1:792059962777:web:665152bc72f61d059f5f08/config {"projectId":"fakeinstagram-81277","appId":"1:792059962777:web:665152bc72f61d059f5f08","databaseURL":"https://fakeinstagram-81277-default-rtdb.firebaseio.com","storageBucket":"fakeinstagram-81277.appspot.com","locationId":"us-central","apiKey":"AIzaSyCRzMy0qDjTGhSeOil4dvEwlLzpTAa7raQ","authDomain":"fakeinstagram-81277.firebaseapp.com","messagingSenderId":"792059962777"}
 [info] i  hosting: Serving hosting files from: build {"metadata":{"emulator":{"name":"hosting"},"message":"Serving hosting files from: \u001b[1mbuild\u001b[22m"}}
 [info] ✔  hosting: Local server: http://localhost:5000 {"metadata":{"emulator":{"name":"hosting"},"message":"Local server: \u001b[4m\u001b[1mhttp://localhost:5000\u001b[22m\u001b[24m"}}
