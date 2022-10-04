@@ -3,6 +3,7 @@ import { LoginButton } from "../../reusuableComponents/LoginButton"
 import { getAuth } from "firebase/auth"
 import { getFirestore, collection, addDoc } from 'firebase/firestore';
 import { signIn, checkSignedInWithMessage, initFirebaseAuth } from "../../../App";
+import { Link } from "react-router-dom";
 
 export function SignUpPage() {
     return(
@@ -14,7 +15,7 @@ export function SignUpPage() {
                     <label htmlFor='usernameInput'>@</label>
                     <input type='text' placeholder={'Username (1-30 characters)'} name='usernameInput' id='usernameInput'></input>
                 </div>
-                <button id='signUpWithGoogleButton' onClick={signUpButtonClick}>Sign-up with Google</button>
+                <Link to='/'><button id='signUpWithGoogleButton' onClick={() => signUpButtonClick(document.getElementById('usernameInput').value)}>Sign-up with Google</button></Link>
                 <p>Already signed up?</p>
                 <LoginButton />
             </div>
@@ -22,27 +23,22 @@ export function SignUpPage() {
     )
 }
 
-async function signUpButtonClick() {
+async function signUpButtonClick(username) {
     await signIn()
-    saveUsernameToDatabase()
+    saveUsernameToDatabase(username)
     checkSignedInWithMessage()
     initFirebaseAuth()
 }
 
-async function saveUsernameToDatabase() {
+async function saveUsernameToDatabase(username) {
     try {
         await addDoc(collection(getFirestore(), 'user'), {
             fullname: getAuth().currentUser.displayName,
-            username: document.getElementById('usernameInput').value
+            username: username,
+            timestamp: new Date()
         })
     }
     catch(error) {
         console.error('Error writing username to Firebase Database', error)
     }
-}
-
-export function renderSignUpPage(){
-    document.getElementById('signUpPage').style.display = 'inline'
-    document.getElementById('homePageContent').style.display = 'none'
-    document.getElementById('header').style.display = 'none'
 }

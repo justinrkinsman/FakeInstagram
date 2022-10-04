@@ -1,5 +1,6 @@
 import { YourProfilePic } from "../../reusuableComponents/YourProfilePic"
 import { signOutUser } from "../../../App"
+import './ProfileCard.css'
 
 export function ProfileCard() {
     return(

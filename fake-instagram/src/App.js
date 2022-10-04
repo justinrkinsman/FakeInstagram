@@ -24,7 +24,6 @@ firebase.initializeApp(firebaseConfig);
 export async function signIn() {
   let provider = new GoogleAuthProvider()
   await signInWithPopup(getAuth(), provider)
-  console.log(getAuth())
 }
 
 export function signOutUser() {
@@ -47,15 +46,18 @@ export function checkSignedInWithMessage() {
 
 async function authStateObserver() {
   let profileCard = await document.getElementById('profileCard')
+  let signUpButton = await document.getElementById('signUp')
+  let loginButton = await document.getElementById('login')
   if (checkSignedInWithMessage() === true) {
     // User is signed in!
     // Get the signed-in user's profile pic and name.
     //let profilePicUrl = getProfilePicUrl();
     //let userName = getUserName();
-    
 
     //show user's profile card
     profileCard.style.visibility = 'visible'
+    signUpButton.style.display = 'none'
+    loginButton.style.display = 'none'
     // Set the user's profile pic and name.
     //userPicElement.style.backgroundImage =
       //'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')';
@@ -71,18 +73,18 @@ async function authStateObserver() {
 
     // We save the Firebase Messaging Device token and enable notifications.
     //saveMessagingDeviceToken();
-    console.log('logged in')
   } else {
     // User is signed out!
     // Hide user's profile and sign-out button.
     profileCard.style.visibility = 'hidden'
+    signUpButton.style.display = 'inline'
+    loginButton.style.display = 'inline'
     //userNameElement.setAttribute('hidden', 'true');
     //userPicElement.setAttribute('hidden', 'true');
     //signOutButtonElement.setAttribute('hidden', 'true');
 
     // Show sign-in button.
     //signInButtonElement.removeAttribute('hidden');
-    console.log('signing off')
   }
 }
 
