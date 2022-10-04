@@ -1,9 +1,10 @@
 import { Header } from "../../Header"
 import { LoginButton } from "../../reusuableComponents/LoginButton"
-import { getAuth } from "firebase/auth"
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
-import { signIn, checkSignedInWithMessage, initFirebaseAuth } from "../../../App";
+import { getAuth, signOut } from "firebase/auth"
+import { getFirestore, doc, setDoc, getDoc } from 'firebase/firestore';
+import { signIn, checkSignedInWithMessage, initFirebaseAuth, signOutUser } from "../../../App";
 import { Link } from "react-router-dom";
+import { db } from "../../../App"
 
 export function SignUpPage() {
     return(
@@ -25,9 +26,21 @@ export function SignUpPage() {
 
 async function signUpButtonClick(username) {
     await signIn()
-    saveUsernameToDatabase(username)
-    checkSignedInWithMessage()
-    initFirebaseAuth()
+    searchDatabaseForUsername(username)
+    
+}
+
+async function searchDatabaseForUsername(username) {
+    const docRef = doc(db, 'user', getAuth().currentUser.email)
+    const docSnap = await getDoc(docRef)
+    if (docSnap.exists()){
+        console.log('email already taken')
+        signOutUser()
+    }else{
+        saveUsernameToDatabase(username)
+        checkSignedInWithMessage()
+        initFirebaseAuth()
+    }
 }
 
 async function saveUsernameToDatabase(username) {
