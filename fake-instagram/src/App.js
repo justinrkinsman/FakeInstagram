@@ -5,7 +5,9 @@ import {
   signInWithPopup, 
   getAuth,
   onAuthStateChanged,
-  signOut
+  signOut,
+  setPersistence, 
+  browserSessionPersistence
 } from 'firebase/auth';
 
 import firebase from 'firebase/compat/app'
@@ -25,6 +27,9 @@ export const db = getFirestore(app)
 
 export async function signIn() {
   let provider = new GoogleAuthProvider()
+  provider.setCustomParameters({
+    prompt: 'select_account'
+  })
   await signInWithPopup(getAuth(), provider)
 }
 
