@@ -1,4 +1,5 @@
 import './App.css';
+import { renderYourUsername } from './components/reusuableComponents/Username';
 //import { HomePage } from './components/HomePage';
 import { 
   GoogleAuthProvider, 
@@ -6,12 +7,10 @@ import {
   getAuth,
   onAuthStateChanged,
   signOut,
-  setPersistence, 
-  browserSessionPersistence
 } from 'firebase/auth';
 
 import firebase from 'firebase/compat/app'
-import { getFirestore, collection, getDocs } from 'firebase/firestore'
+import { getFirestore, doc, getDoc } from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: "AIzaSyCRzMy0qDjTGhSeOil4dvEwlLzpTAa7raQ",
@@ -51,6 +50,13 @@ export function checkSignedInWithMessage() {
   }
 }
 
+async function getUsername() {
+  const docRef = doc(db, 'user', getAuth().currentUser.email)
+  const docSnap = await getDoc(docRef)
+
+  return await docSnap.data().username
+}
+
 async function authStateObserver() {
   let profileCard = await document.getElementById('profileCard')
   let signUpButton = await document.getElementById('signUp')
@@ -67,6 +73,8 @@ async function authStateObserver() {
     loginButton.style.display = 'none'
     console.log(getAuth())
     // Set the user's profile pic and name.
+
+    renderYourUsername(await getUsername())
     //userPicElement.style.backgroundImage =
       //'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')';
     //userNameElement.textContent = userName;

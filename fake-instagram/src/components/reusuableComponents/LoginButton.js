@@ -16,7 +16,7 @@ async function LoginButtonClick() {
     getUsername()
 }
 
-async function getUsername() {
+export async function getUsername() {
     const docRef = doc(db, 'user', getAuth().currentUser.email)
     const docSnap = await getDoc(docRef)
 

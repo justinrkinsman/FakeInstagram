@@ -1,5 +1,6 @@
 import { YourProfilePic } from "../../reusuableComponents/YourProfilePic"
 import { signOutUser } from "../../../App"
+import { YourUsername } from "../../reusuableComponents/YourUsername"
 import './ProfileCard.css'
 
 export function ProfileCard() {
@@ -7,7 +8,7 @@ export function ProfileCard() {
         <div id="profileCard">
             <div id='profileCardHeader'>
                 <YourProfilePic />
-                <p>@username</p>
+                <YourUsername />
                 <p>Full Name</p>
                 <button onClick={signOutUser}>Logout</button>
             </div>
