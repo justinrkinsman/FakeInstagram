@@ -1,4 +1,4 @@
-import { signIn, checkSignedInWithMessage, initFirebaseAuth } from "../../App"
+import { signIn, checkSignedInWithMessage, initFirebaseAuth, setOnlinePersistence } from "../../App"
 import { doc, getDoc } from "firebase/firestore"
 import { getAuth } from "firebase/auth"
 import { db } from "../../App"
@@ -14,6 +14,7 @@ async function LoginButtonClick() {
     checkSignedInWithMessage()
     initFirebaseAuth()
     getUsername()
+    setOnlinePersistence()
 }
 
 export async function getUsername() {

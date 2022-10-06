@@ -7,10 +7,22 @@ import {
   getAuth,
   onAuthStateChanged,
   signOut,
+  setPersistence,
+  browserLocalPersistence,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
 } from 'firebase/auth';
 
 import firebase from 'firebase/compat/app'
-import { getFirestore, doc, getDoc } from 'firebase/firestore'
+import { 
+  getDoc, 
+  getFirestore,
+  query,
+  getDocs,
+  collection,
+  where,
+  addDoc
+} from 'firebase/firestore'
 
 const firebaseConfig = {
   apiKey: "AIzaSyCRzMy0qDjTGhSeOil4dvEwlLzpTAa7raQ",
@@ -23,6 +35,8 @@ const firebaseConfig = {
     
 const app = firebase.initializeApp(firebaseConfig);
 export const db = getFirestore(app)
+const auth = getAuth()
+//const googleProvider = new GoogleAuthProvider()
 
 export async function signIn() {
   let provider = new GoogleAuthProvider()
@@ -30,6 +44,18 @@ export async function signIn() {
     prompt: 'select_account'
   })
   await signInWithPopup(getAuth(), provider)
+}
+
+export function setOnlinePersistence(){
+  const auth = getAuth()
+  setPersistence(auth, browserLocalPersistence)
+  .then(() => {
+    return signIn
+  })
+  .catch((error) => {
+    const errorCode = error.errorCode
+    const errorMessage = error.message
+  })
 }
 
 export function signOutUser() {
@@ -50,57 +76,53 @@ export function checkSignedInWithMessage() {
   }
 }
 
-async function getUsername() {
-  const docRef = doc(db, 'user', getAuth().currentUser.email)
-  const docSnap = await getDoc(docRef)
+export const loginWithEMailAndPassword = async (email, password) => {
+  try {
+    await signInWithEmailAndPassword(auth, email, password);
+  } catch (err) {
+    console.log(err)
+    console.log(err.message)
+  }
+}
 
-  return await docSnap.data().username
+export const registerWithEmailAndPassword = async (name, email, password) => {
+  try {
+    const res = await createUserWithEmailAndPassword(auth, email, password)
+    const user = res.user
+    await addDoc(collection(db, "users"), {
+      uid: user.uid,
+      name,
+      authProvider: 'local',
+      email,
+    })
+  } catch (err) {
+    console.error(err)
+    alert(err.message)
+  }
 }
 
 async function authStateObserver() {
-  let profileCard = await document.getElementById('profileCard')
-  let signUpButton = await document.getElementById('signUp')
-  let loginButton = await document.getElementById('login')
+  //let profileCard = document.getElementById('profileCard')
+  //let signUpButton = document.getElementById('signUp')
+  //let loginButton = document.getElementById('login')
   if (checkSignedInWithMessage() === true) {
-    // User is signed in!
-    // Get the signed-in user's profile pic and name.
-    //let profilePicUrl = getProfilePicUrl();
-    //let userName = getUserName();
-
     //show user's profile card
-    profileCard.style.visibility = 'visible'
-    signUpButton.style.display = 'none'
-    loginButton.style.display = 'none'
-    console.log(getAuth())
+    //profileCard.style.visibility = 'visible'
+    //signUpButton.style.display = 'none'
+    //loginButton.style.display = 'none'
+    
     // Set the user's profile pic and name.
-
-    renderYourUsername(await getUsername())
-    //userPicElement.style.backgroundImage =
-      //'url(' + addSizeToGoogleProfilePic(profilePicUrl) + ')';
-    //userNameElement.textContent = userName;
-
-    // Show user's profile and sign-out button.
-    //userNameElement.removeAttribute('hidden');
-    //userPicElement.removeAttribute('hidden');
-    //signOutButtonElement.removeAttribute('hidden');
-
-    // Hide sign-in button.
-    //signInButtonElement.setAttribute('hidden', 'true');
+    getProfilePicUrl()
+    renderYourUsername()
 
     // We save the Firebase Messaging Device token and enable notifications.
     //saveMessagingDeviceToken();
   } else {
     // User is signed out!
     // Hide user's profile and sign-out button.
-    profileCard.style.visibility = 'hidden'
-    signUpButton.style.display = 'inline'
-    loginButton.style.display = 'inline'
-    //userNameElement.setAttribute('hidden', 'true');
-    //userPicElement.setAttribute('hidden', 'true');
-    //signOutButtonElement.setAttribute('hidden', 'true');
-
-    // Show sign-in button.
-    //signInButtonElement.removeAttribute('hidden');
+    //profileCard.style.visibility = 'hidden'
+    //signUpButton.style.display = 'inline'
+    //loginButton.style.display = 'inline'
   }
 }
 
@@ -108,9 +130,11 @@ function getProfilePicUrl() {
   return getAuth().currentUser.photoURL || './images/user.jpg';
 }
 
-export function getUserName() {
+export function getFullname() {
   return getAuth().currentUser.displayName;
 }
+
+initFirebaseAuth()
 
 /*export function App() {
   return (
@@ -118,4 +142,24 @@ export function getUserName() {
       <HomePage />
     </>
   );
+}*/
+
+/*export const signInWithGoogle = async () => {
+  try {
+    const res = await signInWithPopup(auth, googleProvider)
+    const user = res.user
+    const q = query(collection(db, 'users'), where('uid', '==', user.uid))
+    const docs = await getDocs(q)
+    if (docs.docs.length === 0) {
+      await addDoc(collection(db, 'users'), {
+        uid: user.uid,
+        name: user.displayName,
+        authProvider: 'google',
+        email: user.email,
+      })
+    }
+  } catch (err) {
+    console.error(err)
+    alert(err.message)
+  }
 }*/
