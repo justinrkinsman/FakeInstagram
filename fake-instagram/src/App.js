@@ -105,6 +105,7 @@ async function authStateObserver() {
   //let profileCard = document.getElementById('profileCard')
   //let signUpButton = document.getElementById('signUp')
   //let loginButton = document.getElementById('login')
+  
   if (checkSignedInWithMessage() === true) {
     //show user's profile card
     //profileCard.style.visibility = 'visible'
@@ -123,6 +124,8 @@ async function authStateObserver() {
     //profileCard.style.visibility = 'hidden'
     //signUpButton.style.display = 'inline'
     //loginButton.style.display = 'inline'
+
+    //disable header buttons
   }
 }
 

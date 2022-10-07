@@ -1,7 +1,9 @@
 import Message from '../../../images/message.jpg'
 import './HeaderButtons.css'
 import { Link } from 'react-router-dom'
-import { renderYourUsername } from '../../reusuableComponents/Username'
+import { /*initFirebaseAuth,*/ renderYourUsername } from '../../reusuableComponents/Username'
+import React from 'react'
+import { checkSignedInWithMessage } from '../../../App'
 
 export function DirectMessages() {
     return (

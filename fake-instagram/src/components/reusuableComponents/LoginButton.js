@@ -1,6 +1,6 @@
-import { signIn, checkSignedInWithMessage, initFirebaseAuth, setOnlinePersistence } from "../../App"
+import { signIn, checkSignedInWithMessage, setOnlinePersistence, initFirebaseAuth } from "../../App"
 import { doc, getDoc } from "firebase/firestore"
-import { getAuth } from "firebase/auth"
+import { getAuth, onAuthStateChanged } from "firebase/auth"
 import { db } from "../../App"
 
 export function LoginButton() {
@@ -16,6 +16,25 @@ async function LoginButtonClick() {
     getUsername()
     setOnlinePersistence()
 }
+
+/*function initFirebaseAuth() {
+    onAuthStateChanged(getAuth(), authStateObserver)
+}
+
+function authStateObserver() {
+  let profileCard = document.getElementById('profileCard')
+  let signUpButton = document.getElementById('signUp')
+  let loginButton = document.getElementById('login')
+    if (checkSignedInWithMessage() === true){
+        profileCard.style.visibility = 'visible'
+        signUpButton.style.display = 'none'
+        loginButton.style.display = 'none'
+    }else{
+        profileCard.style.visibility = 'hidden'
+        signUpButton.style.display = 'inline'
+        loginButton.style.display = 'inline'
+    }
+}*/
 
 export async function getUsername() {
     const docRef = doc(db, 'user', getAuth().currentUser.email)

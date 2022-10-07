@@ -1,7 +1,7 @@
-import { getAuth } from "firebase/auth"
+import { getAuth, onAuthStateChanged } from "firebase/auth"
 import { doc, getDoc } from "firebase/firestore"
 import { db } from "../../App"
-import { initFirebaseAuth } from "../../App"
+import { initFirebaseAuth, checkSignedInWithMessage } from "../../App"
 
 export async function renderYourUsername() {
     let yourUsername = document.getElementById('yourUsername')
@@ -15,3 +15,13 @@ export async function getUsername() {
   
     return await docSnap.data().username
 }
+
+/*export const initFirebaseAuth = () => {
+    onAuthStateChanged(getAuth(), authStateObserver)
+}
+
+function authStateObserver() {
+    if (checkSignedInWithMessage() === true){
+        renderYourUsername()
+    }
+}*/

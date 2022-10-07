@@ -1,7 +1,7 @@
 export const ViewAllCommentsButton = () => {
     return(
         <div>
-            View ALl Comments Button
+            View All Comments Button
         </div>
     )
 }
